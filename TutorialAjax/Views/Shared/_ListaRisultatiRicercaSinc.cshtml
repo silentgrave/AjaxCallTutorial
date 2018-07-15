@@ -1,0 +1,22 @@
+﻿@model TutorialAjax.Models.SearchModel
+
+<table id="result">
+    <thead>
+        <tr>
+            <th>Titolo</th>
+            <th>Autore</th>
+            <th>Data inserimento</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Books)
+        {
+            <tr style="background-color: @item.ColorHex">
+                <td>@item.Titolo</td>
+                <td>@item.Autore</td>
+                <td>@item.DataInserimento</td>
+            </tr>
+
+        }
+    </tbody>
+</table>

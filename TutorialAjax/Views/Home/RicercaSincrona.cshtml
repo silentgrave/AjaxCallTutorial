@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Ricerca Sincrona";
+}
+@model TutorialAjax.Models.SearchModel
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("RicercaSincrona", "Home", FormMethod.Post, new { @class = "form-row" }))
+        {
+        @Html.AntiForgeryToken()
+        <div class="form-group col-md-12 col-sm-12">
+            <label>Titolo</label>
+            @Html.TextBoxFor(x => x.Titolo, new {@class= "form-control", placeholder = "Titolo" })
+        </div>
+        <button class="btn btn-sm" type="submit" style="margin-left: 14px;">Ricerca</button>
+        }
+    </div>
+</div>
+<div class="row" style="margin-left: 14px; @if (!Model.ShowGrid) { <text>
+     display: none
+     </text>  }">
+    @Html.Partial("_ListaRisultatiRicercaSinc")
+</div>
